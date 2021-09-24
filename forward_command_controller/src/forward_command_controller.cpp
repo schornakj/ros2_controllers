@@ -150,6 +150,9 @@ CallbackReturn ForwardCommandController::on_activate(
 CallbackReturn ForwardCommandController::on_deactivate(
   const rclcpp_lifecycle::State & /*previous_state*/)
 {
+  // Reset the RealtimeBuffer
+  rt_command_ptr_ = realtime_tools::RealtimeBuffer<std::shared_ptr<CmdType>>(nullptr);
+
   return CallbackReturn::SUCCESS;
 }
 
