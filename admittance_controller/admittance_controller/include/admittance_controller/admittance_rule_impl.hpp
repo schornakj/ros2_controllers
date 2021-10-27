@@ -239,7 +239,7 @@ controller_interface::return_type AdmittanceRule::update(
 }
 
 controller_interface::return_type AdmittanceRule::get_controller_state(
-  control_msgs::msg::AdmittanceControllerState & state_message)
+  admittance_controller_msgs::msg::AdmittanceControllerState & state_message)
 {
   //   state_message.input_wrench_control_frame = reference_wrench_control_frame_;
   state_message.input_pose_control_frame = reference_pose_ik_base_frame_;

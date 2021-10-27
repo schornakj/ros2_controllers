@@ -24,7 +24,7 @@
 #include "gmock/gmock.h"
 
 #include "admittance_controller/admittance_controller.hpp"
-#include "control_msgs/msg/admittance_controller_state.hpp"
+#include "admittance_controller_msgs/msg/admittance_controller_state.hpp"
 #include "geometry_msgs/msg/transform_stamped.hpp"
 #include "hardware_interface/loaned_state_interface.hpp"
 #include "hardware_interface/loaned_command_interface.hpp"
@@ -41,7 +41,7 @@
 using ControllerCommandWrenchMsg = geometry_msgs::msg::WrenchStamped;
 using ControllerCommandPoseMsg = geometry_msgs::msg::PoseStamped;
 using ControllerCommandJointMsg = trajectory_msgs::msg::JointTrajectory;
-using ControllerStateMsg = control_msgs::msg::AdmittanceControllerState;
+using ControllerStateMsg = admittance_controller_msgs::msg::AdmittanceControllerState;
 
 namespace
 {

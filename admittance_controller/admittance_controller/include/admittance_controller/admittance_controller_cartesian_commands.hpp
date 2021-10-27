@@ -27,7 +27,7 @@ controller_interface::return_type AdmittanceRule::reset()
 
 
 controller_interface::return_type AdmittanceRule::get_controller_state(
-  control_msgs::msg::AdmittanceControllerState & state_message)
+  admittance_controller_msgs::msg::AdmittanceControllerState & state_message)
 {
   // FIXME(destogl): Something is wrong with this transformation - check frames...
   try {

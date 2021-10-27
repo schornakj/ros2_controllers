@@ -21,7 +21,9 @@
 
 #include "angles/angles.h"
 #include "admittance_controller/moveit_kinematics.hpp"
-#include "control_msgs/msg/admittance_controller_state.hpp"
+#include "admittance_controller/tf2_eigen.hpp"
+#include "admittance_controller/tf2_geometry_msgs.hpp"
+#include "admittance_controller_msgs/msg/admittance_controller_state.hpp"
 #include "controller_interface/controller_interface.hpp"
 #include "controller_interface/controller_parameters.hpp"
 #include "filters/filter_chain.hpp"
@@ -391,7 +393,7 @@ public:
   );
 
   controller_interface::return_type get_controller_state(
-    control_msgs::msg::AdmittanceControllerState & state_message
+    admittance_controller_msgs::msg::AdmittanceControllerState & state_message
   );
 
   controller_interface::return_type get_pose_of_control_frame_in_base_frame(geometry_msgs::msg::PoseStamped & pose);

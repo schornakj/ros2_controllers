@@ -22,8 +22,10 @@
 #include <vector>
 
 #include "admittance_controller/admittance_rule.hpp"
+#include "admittance_controller/tf2_eigen.hpp"
+#include "admittance_controller/tf2_geometry_msgs.hpp"
 #include "admittance_controller/visibility_control.h"
-#include "control_msgs/msg/admittance_controller_state.hpp"
+#include "admittance_controller_msgs/msg/admittance_controller_state.hpp"
 #include "controller_interface/controller_interface.hpp"
 #include "geometry_msgs/msg/pose_stamped.hpp"
 #include "geometry_msgs/msg/transform_stamped.hpp"
@@ -116,7 +118,7 @@ protected:
   realtime_tools::RealtimeBuffer<std::shared_ptr<ControllerCommandJointMsg>>
   input_joint_command_;
 
-  using ControllerStateMsg = control_msgs::msg::AdmittanceControllerState;
+  using ControllerStateMsg = admittance_controller_msgs::msg::AdmittanceControllerState;
   using ControllerStatePublisher = realtime_tools::RealtimePublisher<ControllerStateMsg>;
 
   rclcpp::Publisher<ControllerStateMsg>::SharedPtr s_publisher_;

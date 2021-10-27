@@ -9,7 +9,10 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
 endif()
 
+set(CMAKE_BUILD_TYPE DEBUG)
+
 # find dependencies
+find_package(admittance_controller_msgs REQUIRED)
 find_package(ament_cmake REQUIRED)
 find_package(control_msgs REQUIRED)
 find_package(controller_interface REQUIRED)
@@ -42,6 +45,7 @@ target_include_directories(
 )
 ament_target_dependencies(
   admittance_controller
+  admittance_controller_msgs
   control_msgs
   controller_interface
   ${Eigen_LIBRARIES}
@@ -98,6 +102,7 @@ if(BUILD_TESTING)
   target_link_libraries(test_admittance_controller admittance_controller)
   ament_target_dependencies(
     test_admittance_controller
+    admittance_controller_msgs
     control_msgs
     controller_interface
     hardware_interface
@@ -112,6 +117,7 @@ ament_export_libraries(
   admittance_controller
 )
 ament_export_dependencies(
+  admittance_controller_msgs
   control_msgs
   controller_interface
   filters

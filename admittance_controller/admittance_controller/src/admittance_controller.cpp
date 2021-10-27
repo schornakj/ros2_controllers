@@ -320,7 +320,11 @@ const
 
   state_interfaces_config.names.reserve(6 + joint_names_.size() * state_interface_types_.size());
 
-  state_interfaces_config.names = force_torque_sensor_->get_state_interface_names();
+  // TODO: force_torque_sensor_ not initialized when this function is called
+  if (force_torque_sensor_ != nullptr)
+  {
+    state_interfaces_config.names = force_torque_sensor_->get_state_interface_names();
+  }
 
   for (const auto & joint : joint_names_) {
     for (const auto & interface : state_interface_types_) {
