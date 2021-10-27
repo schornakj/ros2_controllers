@@ -9,8 +9,6 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
 endif()
 
-set(CMAKE_BUILD_TYPE DEBUG)
-
 # find dependencies
 find_package(admittance_controller_msgs REQUIRED)
 find_package(ament_cmake REQUIRED)
