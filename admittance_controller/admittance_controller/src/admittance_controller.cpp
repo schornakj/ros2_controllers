@@ -53,18 +53,18 @@ CallbackReturn AdmittanceController::on_init()
 
   try {
     // TODO: use variables as parameters
-    get_node()->declare_parameter<std::vector<std::string>>("joints", std::vector<std::string>({}));
-    get_node()->declare_parameter<std::vector<std::string>>("command_interfaces", std::vector<std::string>({}));
-    get_node()->declare_parameter<std::vector<std::string>>("state_interfaces", std::vector<std::string>({}));
-    get_node()->declare_parameter<std::string>("ft_sensor_name", "");
-    get_node()->declare_parameter<std::string>("joint_limiter_type", "joint_limits/SimpleJointLimiter");
-    get_node()->declare_parameter<bool>("use_joint_commands_as_input", false);
-    get_node()->declare_parameter<double>("action_monitor_rate", 20.0);
-    get_node()->declare_parameter<bool>("allow_partial_joints_goal", allow_partial_joints_goal_);
-    get_node()->declare_parameter<bool>(
+    auto_declare<std::vector<std::string>>("joints", std::vector<std::string>({}));
+    auto_declare<std::vector<std::string>>("command_interfaces", std::vector<std::string>({}));
+    auto_declare<std::vector<std::string>>("state_interfaces", std::vector<std::string>({}));
+    auto_declare<std::string>("ft_sensor_name", "");
+    auto_declare<std::string>("joint_limiter_type", "joint_limits/SimpleJointLimiter");
+    auto_declare<bool>("use_joint_commands_as_input", false);
+    auto_declare<double>("action_monitor_rate", 20.0);
+    auto_declare<bool>("allow_partial_joints_goal", allow_partial_joints_goal_);
+    auto_declare<bool>(
       "allow_integration_in_goal_trajectories", allow_integration_in_goal_trajectories_);
-    get_node()->declare_parameter<double>("constraints.stopped_velocity_tolerance", 0.01);
-    get_node()->declare_parameter<double>("constraints.goal_time", 0.0);
+    auto_declare<double>("constraints.stopped_velocity_tolerance", 0.01);
+    auto_declare<double>("constraints.goal_time", 0.0);
 
     // TODO(destogl): enable when IK-plugin support is added
     // get_node()->declare_parameter<std::string>("IK.plugin", "");

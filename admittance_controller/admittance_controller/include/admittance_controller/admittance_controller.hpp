@@ -42,7 +42,7 @@
 // TODO(destogl): this is only temporary to work with servo. It should be either trajectory_msgs/msg/JointTrajectoryPoint or std_msgs/msg/Float64MultiArray
 #include "trajectory_msgs/msg/joint_trajectory.hpp"
 
-//#include "joint_trajectory_controller/trajectory_execution_impl.hpp"
+#include "joint_trajectory_controller/trajectory_execution_impl.hpp"
 #include "joint_trajectory_controller/tolerances.hpp"
 
 namespace admittance_controller
