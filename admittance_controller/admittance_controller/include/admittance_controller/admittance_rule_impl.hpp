@@ -148,13 +148,18 @@ controller_interface::return_type AdmittanceRule::update(
     // needed because we are using feed-forward term in L221 when using joints
     // This could be probably remove to that we calculate admittance_desired - reference to get the pose_error - cool this could be done above!!!! very cool, we need to try this...
     // Feedforward term is current - reference
-    for (auto i = 0u; i < 6; ++i)
-    {
-      sum_of_admittance_displacements_arr_[i] += relative_admittance_pose_arr_[i];
-    }
+//    for (auto i = 0u; i < 6; ++i)
+//    {
+//      sum_of_admittance_displacements_arr_[i] += relative_admittance_pose_arr_[i];
+//    }
 
-    // Transform sum of admittance displacements to control frame
-    convert_array_to_message(sum_of_admittance_displacements_arr_, sum_of_admittance_displacements_);
+//    // Transform sum of admittance displacements to control frame
+//    convert_array_to_message(sum_of_admittance_displacements_arr_, sum_of_admittance_displacements_);
+//    transform_relative_to_control_frame(sum_of_admittance_displacements_, sum_of_admittance_displacements_control_frame_);
+//    convert_message_to_array(sum_of_admittance_displacements_control_frame_, pose_error);
+
+
+    convert_array_to_message(relative_admittance_pose_arr_, sum_of_admittance_displacements_);
     transform_relative_to_control_frame(sum_of_admittance_displacements_, sum_of_admittance_displacements_control_frame_);
     convert_message_to_array(sum_of_admittance_displacements_control_frame_, pose_error);
   }
